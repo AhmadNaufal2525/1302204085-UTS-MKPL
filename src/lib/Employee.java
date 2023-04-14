@@ -5,10 +5,15 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Employee {
+	public enum Grade {
+		GRADE1,
+		GRADE2,
+		GRADE3
+	}
 	private int yearJoined;
 	private int monthJoined;
 	private int monthWorkingInYear;
-	
+	private Grade grade;
 	private boolean isForeigner;
 	
 	private int monthlySalary;
@@ -20,8 +25,9 @@ public class Employee {
 	private List<String> childNames;
 	private List<String> childIdNumbers;
 	
-	public Employee(int yearJoined, int monthJoined, boolean isForeigner) {
+	public Employee(int yearJoined, Grade grade, int monthJoined, boolean isForeigner) {
 		this.yearJoined = yearJoined;
+		this.grade = grade;
 		this.monthJoined = monthJoined;
 		this.isForeigner = isForeigner;
 		childNames = new LinkedList<String>();
