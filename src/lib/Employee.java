@@ -36,10 +36,10 @@ public class Employee {
 	}
 
 	public void setMonthlySalary() {
-		monthlySalary = calculateMonthlySalary();
+		monthlySalary = getMonthlySalary();
 	}
 
-	private int calculateMonthlySalary() {
+	private int getMonthlySalary() {
 		int salary;
 		switch (grade) {
 			case GRADE1:
@@ -52,8 +52,7 @@ public class Employee {
 				salary = 7000000;
 				break;
 			default:
-				salary = 0;
-				break;
+				throw new IllegalArgumentException("Invalid Grade:" + grade);
 		}
 		if (isForeigner) {
 			salary = (int) (salary * 1.5);
