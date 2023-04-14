@@ -35,23 +35,30 @@ public class Employee {
 		childIdNumbers = new LinkedList<String>();
 	}
 
-	public void setMonthlySalary(int grade) {
-		if (grade == 1) {
-			monthlySalary = 3000000;
-			if (isForeigner) {
-				monthlySalary = (int) (3000000 * 1.5);
-			}
-		} else if (grade == 2) {
-			monthlySalary = 5000000;
-			if (isForeigner) {
-				monthlySalary = (int) (3000000 * 1.5);
-			}
-		} else if (grade == 3) {
-			monthlySalary = 7000000;
-			if (isForeigner) {
-				monthlySalary = (int) (3000000 * 1.5);
-			}
+	public void setMonthlySalary() {
+		monthlySalary = calculateMonthlySalary();
+	}
+
+	private int calculateMonthlySalary() {
+		int salary;
+		switch (grade) {
+			case GRADE1:
+				salary = 3000000;
+				break;
+			case GRADE2:
+				salary = 5000000;
+				break;
+			case GRADE3:
+				salary = 7000000;
+				break;
+			default:
+				salary = 0;
+				break;
 		}
+		if (isForeigner) {
+			salary = (int) (salary * 1.5);
+		}
+		return salary;
 	}
 
 	public void setGrade(Grade grade) {
